@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test Webpage</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container">
+			<a class="brand" href="/">
+				<picture class="site-logo-wrap">
+					  <source srcset="assets/images/PlayBookOps_Logo.webp" type="image/webp">
+					  <img src="assets/images/logo.svg" alt="Test Webpage logo" class="site-logo">
+				</picture>
+				<span class="brand-text">Test Webpage</span>
+			</a>
+			<nav class="main-nav" id="main-nav">
+				<button id="nav-toggle" aria-expanded="false">Menu</button>
+				<ul class="nav-list">
+					<li><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h2>Welcome to your new site</h2>
+				<p>This is a starter template. Edit files in the project folder to customize.</p>
+				<a class="btn" href="#about">Learn more</a>
+			</div>
+		</section>
+
+		<section id="about" class="container section">
+			<h3>About</h3>
+			<p>Use this scaffold to build your web project. Styles are in <code>styles/styles.css</code> and scripts in <code>scripts/main.js</code>.</p>
+		</section>
+
+		<section id="contact" class="container section">
+			<h3>Contact</h3>
+			<p>Replace this with your contact info or remove as needed.</p>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<small>&copy; <span id="year"></span> Test Webpage</small>
+		</div>
+	</footer>
+
+	<script src="scripts/main.js"></script>
+</body>
+</html>
