@@ -1,0 +1,41 @@
+/* Minimal demo styles for scroll fade */
+:root{
+  --demo-bg-a: linear-gradient(90deg,#1a1a2e 0%,#0f1724 100%);
+  --fade-color: #5c5c5c; /* target grey */
+  --fade-translate: 100%; /* 100% -> off right; 0% -> fully covering */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,Segoe UI,system-ui,Arial;background:#0f1724;color:#fff}
+
+.demo-root{min-height:200vh}
+.demo-section{height:100vh;display:flex;align-items:center;justify-content:center;position:relative}
+.demo-section .inner{max-width:820px;padding:2rem;text-align:center}
+.demo-section--a{background:var(--demo-bg-a)}
+
+/* Section 2: content layer with a smooth grey gradient overlay that increases from right → left.
+   Control the fade with CSS vars: --fade-stop (percent) and --fade-width (percent). */
+.demo-section--b{background:linear-gradient(90deg,#08304b 0%, #0b2a3f 100%);overflow:hidden}
+.fade-target{
+  --mask-size: 100%;    /* 0% => no grey; 100% => full grey visible */
+  --mask-edge: 18%;   /* softness of the edge */
+  overflow:hidden;
+}
+.fade-target::before{
+  content:"";
+  position:absolute;inset:0;z-index:0;background:var(--fade-color);
+  /* Use a mask so the grey can be revealed from the right smoothly and fully cover at 100% */
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) var(--mask-size), rgba(0,0,0,0) calc(var(--mask-size) + var(--mask-edge)) );
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) var(--mask-size), rgba(0,0,0,0) calc(var(--mask-size) + var(--mask-edge)) );
+  will-change:mask-image, -webkit-mask-image;
+}
+
+/* Ensure content sits above overlay */
+.fade-target .inner{position:relative;z-index:1}
+
+/* small responsive tweaks */
+@media (max-width:700px){
+  .demo-section .inner{padding:1.25rem}
+  .demo-section--a h1,.demo-section--b h1{font-size:1.6rem}
+}

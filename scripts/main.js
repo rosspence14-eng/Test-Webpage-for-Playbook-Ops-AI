@@ -36,11 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
         section.style.transform = `translateX(calc(${100 - pct}vw))`;
       }
     });
-  };
-
-  const updateBackground = (p) => {
-    const gradientPercent = Math.max(0, Math.min(p * 100, 100));
-    document.body.style.background = `linear-gradient(90deg, #0D080A 0%, #0D080A ${Math.max(0, 100 - gradientPercent)}%, #7d8d99 100%)`;
+    
+    // Trigger entrance animation for content section when scrolled into view
+    const contentSection = document.getElementById('features');
+    if (contentSection) {
+      // Trigger animation as section starts entering (p >= 0.3)
+      if (p >= 0.3) {
+        contentSection.classList.add('in-view');
+        console.log('Added in-view class, p =', p);
+      } else {
+        contentSection.classList.remove('in-view');
+      }
+    }
   };
 
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
@@ -56,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ease displayProgress toward progress for subtle smoothing
     displayProgress += (progress - displayProgress) * 0.12;
     render(displayProgress);
-    updateBackground(displayProgress);
 
     if (animating || Math.abs(displayProgress - progress) > 0.0005) {
       requestAnimationFrame(animate);
@@ -82,4 +88,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('wheel', handleWheel, { passive: false });
 });
-

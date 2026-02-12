@@ -51,7 +51,30 @@ body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffff
 
 /* Sections & footer */
 .section{padding:2rem 1rem;background:var(--surface);margin:1rem 0;border-radius:8px;color:var(--text)}
-.site-footer{padding:1rem 0;margin-top:2rem;text-align:center;color:rgba(0,0,0,0.6)}
+
+/* Content section */
+.content-section{background:var(--brand-dark);color:#ffffff;padding:2rem}
+.content-section h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}
+
+/* Features grid */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1.5rem;padding:0 2rem}
+
+/* Feature cards with entrance animation */
+.feature-card{background:rgba(255,255,255,0.08);padding:1.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(8px);opacity:0;transform:translateX(100px);animation:none;transition:all .3s ease}
+.feature-card h3{font-size:1.25rem;margin-bottom:0.5rem;color:var(--brand-accent-cyan)}
+.feature-card p{font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8)}
+
+/* Entry animation - slides in from right as section enters */
+.content-section.in-view .feature-card{animation:slideInFromRight .6s ease-out forwards}
+.content-section.in-view .feature-card:nth-child(1){animation-delay:0.05s}
+.content-section.in-view .feature-card:nth-child(2){animation-delay:0.12s}
+.content-section.in-view .feature-card:nth-child(3){animation-delay:0.19s}
+.content-section.in-view .feature-card:nth-child(4){animation-delay:0.26s}
+
+@keyframes slideInFromRight{
+	from{opacity:0;transform:translateX(100px)}
+	to{opacity:1;transform:translateX(0)}
+}
 
 /* Utility */
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
@@ -59,9 +82,11 @@ body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffff
 /* Responsive */
 /* Smooth gradient background on wheel input with horizontal section movement */
 main{position:fixed;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1}
-.scroll-container{position:relative;width:100%;height:100%;display:flex;flex-direction:row;overflow:hidden}
-.scroll-section{position:relative;width:100vw;height:100vh;display:flex;align-items:center;flex-shrink:0;transition:none}
+.scroll-container{position:relative;width:200%;height:100%;display:flex;flex-direction:row;overflow:hidden}
+.scroll-section{position:relative;width:100vw;height:100vh;display:flex;align-items:center;flex-shrink:0;transition:none;z-index:0}
 /* Sections move horizontally based on scroll position via JavaScript */
+
+
 
 @media (max-width:900px){
 	/* Collapse most nav items into a hamburger dropdown; keep CTA (last item) visible */
