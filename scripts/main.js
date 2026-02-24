@@ -1,21 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Set current year in footer
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Mobile nav toggle — toggle `expanded` class on the nav container so CSS can show/hide items
-  const navToggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('main-nav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function () {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('expanded', !expanded);
-    });
-  }
-
-  // Scroll-based horizontal movement that only snaps at ends (start/end) with fixed animation speed
+  // Only run scroll behavior if there are scroll-sections (index page only)
   const sections = document.querySelectorAll('.scroll-section');
+  if (sections.length === 0) return; // Exit if not on index page
+  
+  // Scroll-based horizontal movement that only snaps at ends (start/end) with fixed animation speed
   const totalSections = sections.length;
   let progress = 0; // 0.0 (start) -> 1.0 (end)
   let displayProgress = 0; // eased display value

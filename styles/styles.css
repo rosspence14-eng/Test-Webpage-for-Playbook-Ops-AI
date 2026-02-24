@@ -14,9 +14,10 @@
 
 /* Reset */
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;padding:0;overflow:hidden;height:100vh}
+html,body{margin:0;padding:0}
 h1,h2,h3,h4,h5,h6{font-family:Anta,sans-serif}
-body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffffff;background:var(--brand-dark)}
+body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffffff;background:var(--brand-dark);display:flex;flex-direction:column;min-height:100vh}
+main:not(.scroll-container){flex:1}
 
 .container{max-width:1000px;margin:0 auto;padding:1rem}
 
@@ -24,7 +25,7 @@ body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffff
 .hero .container{margin:0;padding-left:2.5rem}
 
 /* Header */
-.site-header{background:#0D080A;border-bottom:1px solid rgba(0,0,0,0.06);position:relative}
+.site-header{background:#0D080A;border-bottom:1px solid rgba(0,0,0,0.06);position:relative;z-index:100}
 .site-header .container{display:flex;align-items:center;justify-content:flex-start;padding:1.75rem 1rem;padding-left:6rem}
 .brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:#ffffff;position:absolute;left:1rem;top:50%;transform:translateY(-50%)}
 .site-logo-wrap{display:inline-block;vertical-align:middle;height:40px}
@@ -50,11 +51,14 @@ body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffff
 .btn:hover,.btn:focus{background:var(--brand-mid);transform:translateY(-1px)}
 
 /* Sections & footer */
-.section{padding:2rem 1rem;background:var(--surface);margin:1rem 0;border-radius:8px;color:var(--text)}
+.section{padding:2rem 1rem;background:transparent;margin:1rem auto;border-radius:8px;color:#ffffff;text-align:center;max-width:1000px;width:100%}
 
 /* Content section */
 .content-section{background:var(--brand-dark);color:#ffffff;padding:2rem}
 .content-section h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}
+
+/* Site footer */
+.site-footer{background:#0D080A;border-top:1px solid rgba(0,0,0,0.06);padding:2rem 1rem;text-align:center;margin-top:auto}
 
 /* Features grid */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1.5rem;padding:0 2rem}
@@ -81,7 +85,7 @@ body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffff
 
 /* Responsive */
 /* Smooth gradient background on wheel input with horizontal section movement */
-main{position:fixed;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1}
+main.scroll-container{position:fixed;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1}
 .scroll-container{position:relative;width:200%;height:100%;display:flex;flex-direction:row;overflow:hidden}
 .scroll-section{position:relative;width:100vw;height:100vh;display:flex;align-items:center;flex-shrink:0;transition:none;z-index:0}
 /* Sections move horizontally based on scroll position via JavaScript */
