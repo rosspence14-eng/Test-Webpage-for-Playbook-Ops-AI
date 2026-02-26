@@ -4,55 +4,47 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Test Webpage</title>
+	<title>PlayBookOps</title>
+	<link rel="icon" href="assets/images/PlayBookOps_Logo_Simple.jpg" type="image/webp">
 	<link rel="stylesheet" href="styles/styles.css">
+	<script src="scripts/include.js"></script>
 </head>
 <body>
-	<header class="site-header">
-		<div class="container">
-			<a class="brand" href="/">
-				<picture class="site-logo-wrap">
-					  <source srcset="assets/images/PlayBookOps_Logo.webp" type="image/webp">
-					  <img src="assets/images/logo.svg" alt="Test Webpage logo" class="site-logo">
-				</picture>
-				<span class="brand-text">Test Webpage</span>
-			</a>
-			<nav class="main-nav" id="main-nav">
-				<button id="nav-toggle" aria-expanded="false">Menu</button>
-				<ul class="nav-list">
-					<li><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<div id="header-container"></div>
 
-	<main>
-		<section class="hero">
+	<main class="scroll-container">
+		<section class="hero scroll-section">
 			<div class="container">
-				<h2>Welcome to your new site</h2>
-				<p>This is a starter template. Edit files in the project folder to customize.</p>
-				<a class="btn" href="#about">Learn more</a>
+				<h2>Every business has a Playbook</h2>
+				<p>Most just haven't written it down yet - and that's why you're exhausted.</p>
+				<a class="btn" href="about.html">Learn more</a>
 			</div>
 		</section>
 
-		<section id="about" class="container section">
-			<h3>About</h3>
-			<p>Use this scaffold to build your web project. Styles are in <code>styles/styles.css</code> and scripts in <code>scripts/main.js</code>.</p>
-		</section>
-
-		<section id="contact" class="container section">
-			<h3>Contact</h3>
-			<p>Replace this with your contact info or remove as needed.</p>
+		<section class="content-section scroll-section" id="features">
+			<div class="container">
+				<h2>Features & Benefits</h2>
+				<div class="features-grid">
+					<div class="feature-card">
+						<h3>Document</h3>
+						<p>Capture your processes in clear, structured format.</p>
+					</div>
+					<div class="feature-card">
+						<h3>Organize</h3>
+						<p>Keep all your workflows in one searchable place.</p>
+					</div>
+					<div class="feature-card">
+						<h3>Automate</h3>
+						<p>Streamline operations with AI-powered insights.</p>
+					</div>
+					<div class="feature-card">
+						<h3>Scale</h3>
+						<p>Grow your team without losing control of quality.</p>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
-
-	<footer class="site-footer">
-		<div class="container">
-			<small>&copy; <span id="year"></span> Test Webpage</small>
-		</div>
-	</footer>
 
 	<script src="scripts/main.js"></script>
 </body>

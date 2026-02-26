@@ -1,0 +1,233 @@
+PLAYBOOKOPS WEBSITE CONTENT MAPPING
+Content to be added to sub-pages
+=====================================
+
+INDEX.HTML (Already has basic content - add these sections)
+-----------------------------------------------------------
+- Keep existing hero and features grid
+- Consider adding a "Problems We Solve" section with the pain points:
+  * "The Cost of Running From Memory"
+  * Jim Quits Scenario
+  * The Growth Ceiling
+  * The Unsellable Business
+
+
+HOW-IT-WORKS.HTML
+------------------
+Currently has: Basic placeholder text
+
+SHOULD ADD:
+- Main Section: "From Conversation to Execution - Automatically"
+  
+- Subsection 1: "Talk through the Work"
+  * Have a conversation the same way you already explain things
+  * No typing. No templates. No prep.
+  * Just explain how the work gets done.
+
+- Subsection 2: "PlaybookOps Structures What Matters"
+  * Behind the scenes, PlaybookOps organizes it all
+  * Steps. Owners. Tools. Edge Cases.
+  * Captured automatically - without slowing you down.
+
+- Subsection 3: "Systems are Created Automatically"
+  * What you capture becomes execution-ready systems
+  * SOPs become training
+  * Training becomes repeatable execution
+  * Processes stay consistent - even as people change
+
+ADDITIONAL: Add visual diagram/flowchart showing the 3-step process
+
+
+WHO-ITS-FOR.HTML
+-----------------
+Currently has: Placeholder text
+
+SHOULD ADD:
+- Main Heading: "PlaybookOps is purpose-built for businesses that want operations to run without relying on memory, heroics, or constant explanation."
+
+- Section 1: "This is For You If..."
+  * You're running a small to medium-sized business (5-250 people)
+  * Critical work still lives in people's heads
+  * Training depends on shadowing or "just ask them"
+  * You're scaling, delegating, or preparing for leadership transitions
+  * You want systems to run the business - not just document it
+
+- Section 2: "This is Probably Not For You If..."
+  * You treat documentation as a writing project—not a system
+  * If your process stays stable for 12+ months, you don't need a living playbook
+  * Binders, PDFs, and "set-it-and-forget-it" docs work for you
+  * You only need compliance checkboxes
+  * You want "AI magic" without defining owners, steps, or standards
+
+- Note at bottom: "PlaybookOps isn't about documenting work - it's about making work repeatable without relying on memory."
+
+
+PROOF.HTML
+-----------
+Currently has: Placeholder text
+
+SHOULD ADD:
+- Main Heading: "Every Business Pays for Undocumented Work—Eventually."
+
+- Section 1: "Concrete Outcomes You Can Expect"
+  Short intro: "What actually changes once PlaybookOps is in place"
+
+- Subsection A: "New Hires Become Productive Faster"
+  * From "learning by shadowing" → "execution-ready on day one"
+  * New hires know what to do, how to do it, and who owns it
+  * Onboarding no longer depends on your best people being available
+  * Fewer interruptions, fewer mistakes, fewer "quick questions"
+  * Outcome: Ramp time shrinks. Your best people stay focused.
+
+- Subsection B: "Work Runs the Same Way - Every Time"
+  * From "who's working today?" → "the system decides"
+  * Processes don't change based on who's working that day
+  * Standards are clear, visible, and enforced by the system
+  * Execution doesn't decay when you're busy or unavailable
+  * Outcome: Consistency without micromanagement
+
+- Subsection C: "You Stop Being the Bottleneck"
+  * From "everything routes through you" → "decisions move without you"
+  * Steps, decisions, and context live outside your head
+  * Work continues when you're not in the room
+  * You're no longer the backup plan for every edge case
+  * Outcome: Real leverage, not just relief
+
+- Subsection D: "The Business Becomes Transferrable"
+  * From "founder-dependent" → "stands on its own"
+  * Leadership transitions are smoother
+  * Managers lead without guessing
+  * Buyers, partners, and investors see a business that stands on its own
+  * Outcome: Your value is no longer trapped in your head
+
+- Section 2: "Real-World Use Cases" (WITH TESTIMONIALS)
+  Include 3-4 use cases:
+  
+  Use Case 1: "Capturing Critical Work"
+  - When a process lives in someone's head
+  - Process: Talk through it → PlaybookOps turns into SOP → Training assets generated → Execution workflows created
+  - Outcome: Critical work becomes repeatable and searchable
+  
+  Use Case 2: "Onboarding a New Hire"
+  - New hire gets role-based playbooks on day one
+  - They know what "done" means
+  - Fewer "quick questions"
+  - Managers stop shadow-training and start leading
+  - Outcome: Faster ramp time. Fewer interruptions. Higher confidence
+  
+  Use Case 3: "Using Work as it Changes"
+  - Someone describes change in plain English
+  - PlaybookOps updates SOP instantly
+  - Training refreshed automatically
+  - No drift between "how we work" and "what's documented"
+  - Outcome: Your playbook stays alive as the business changes
+  
+  Use Case 4: "Stepping Away"
+  - Team runs work without chasing context
+  - Managers execute with clarity
+  - Team members feel confident
+  - Execution continues even when leadership is offline
+  - Outcome: The business keeps running—because systems do
+
+- Add Testimonials/Social Proof:
+  * "We documented 25 SOP's in a single session. What would have taken us months happened in 3 hours." — Charity T., Chief Operations Officer, Co-Owner, Visiting Angels
+  * "This software has been a game-changer for our operations. The automated workflows and real-time data tracking have saved us hours of manual work..." — Emma R., Digital Marketing Manager
+  * (Note: Original site has testimonials but needs more specific details/real names)
+
+
+ABOUT.HTML
+-----------
+Currently has: Placeholder text
+
+SHOULD ADD:
+- Main intro section about PlaybookOps mission
+  * "PlaybookOps doesn't just organize work. It turns how work actually happens into systems your business can run on."
+
+- Section: "What PlaybookOps Replaces"
+  Six pain points with solutions:
+  
+  1. Tribal Knowledge
+     * Information that only lives in someone's head and disappears when they leave
+     * Replace with: structured, shared systems
+  
+  2. Manual SOP Writing
+     * Weeks of typing, revising, and abandoning half-finished documentation projects
+     * Replace with: conversation-driven capture
+  
+  3. Expensive Consultants
+     * Months of discovery, interviews, and binders that never match how work actually happens
+     * Replace with: AI-structured execution
+  
+  4. One-Off Training
+     * Showing, repeated explanations, and 'just ask Jim' onboarding
+     * Replace with: SOP-powered training
+  
+  5. Process Debt
+     * Workarounds stacked on workarounds until everything feels fragile
+     * Replace with: clean, repeatable systems
+  
+  6. Disconnected Tools
+     * Docs here. Tasks there. Training somewhere else. Nothing actually runs the business.
+     * Replace with: systems that execute
+
+- Add Company Location/Contact Info Section:
+  * Idaho Falls, ID
+  * Support@playbookops.ai
+  * Book a Demo option
+
+- Mission Statement: "Your Business Runs Without You"
+  * Hire faster. Adapt easier. Sleep better when someone leaves.
+  * Your systems live outside your head - and keep working without constant explanation.
+
+
+BUILD-SOP.HTML
+---------------
+Currently has: Placeholder text - "Starter Guide"
+
+SHOULD ADD:
+Keep the current heading but expand with:
+- Add the template structure mentioned on main site:
+  * Title
+  * Purpose
+  * Step-by-step Instructions
+  * Owner
+  * Review cadence
+
+- Could add a "Get Started" section with:
+  * Simple form or CTA to start creating first SOP
+  * Link to support/demo
+
+- Add FAQ inline OR link to main FAQ page
+
+
+GENERAL ADDITIONS ACROSS ALL PAGES
+------------------------------------
+- Add FAQ page OR add FAQ section to About or Build SOP page with these 8 questions:
+  1. What makes your platform different from others?
+  2. Do I need any technical skills to use this platform?
+  3. Can I integrate this with other tools I'm already using?
+  4. How secure is my data on your platform?
+  5. Is there a free trial available?
+  6. What kind of customer support do you offer?
+  7. Can I cancel my subscription anytime?
+  8. How soon can I start seeing results?
+
+- Add "What Changes When Your Company Runs on PlaybookOps" comparison section
+  (Shows Before/After scenarios)
+
+
+SUMMARY BY PRIORITY
+====================
+HIGH PRIORITY (Add first):
+1. WHO-ITS-FOR.html - Add the "For You If / Not For You If" sections (defines target audience)
+2. HOW-IT-WORKS.html - Add the 3-step process (Talk → Structure → Create)
+3. PROOF.html - Add outcome expectations and use cases (shows value)
+
+MEDIUM PRIORITY (Add next):
+4. ABOUT.html - Add "What PlaybookOps Replaces" 6 pain points section
+5. INDEX.html - Enhance with pain points section
+
+LOW PRIORITY (Can add later):
+6. BUILD-SOP.html - Expand with template structure
+7. FAQ page/section - Add 8 common questions
+

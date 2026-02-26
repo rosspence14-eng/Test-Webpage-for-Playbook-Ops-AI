@@ -29,3 +29,17 @@ Branding
  - Place the brand color image at `assets/images/Brand Colors.jpg` (already present). To extract exact hex values, open it in an image editor (or use a color picker) and update the CSS variables at the top of `styles/styles.css`.
  - Add your webp logo at `assets/images/logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `logo.webp` here and I will add it to the project.
  - Add your webp logo at `assets/images/PlayBookOps_Logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `PlayBookOps_Logo.webp` here and I will add it to the project.
+
+link to blogs:
+https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
+
+link to linkden blog content folder:
+https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
+
+add:
+terms of use
+privacy policy
+
+info i need:
+blog location and length
+where links go to (build sop , contact , about , comunity , book a demo)
