@@ -60,6 +60,20 @@ main:not(.scroll-container){flex:1}
 
 /* Site footer */
 .site-footer{background:#0D080A;border-top:1px solid rgba(0,0,0,0.06);padding:2rem 1rem;text-align:center;margin-top:auto}
+.site-footer a{color:#ffffff;text-decoration:none}
+.site-footer a:hover,.site-footer a:focus{text-decoration:underline}
+.footer-legal-links{white-space:nowrap}
+
+/* Legal pages */
+.legal-document{color:#ffffff;text-align:left;max-width:900px}
+.legal-document h2{margin-bottom:0.5rem}
+.legal-document .legal-updated{opacity:0.9;font-style:italic}
+.legal-document h3{margin-top:1.5rem;margin-bottom:0.5rem}
+.legal-document h4{margin-top:1rem;margin-bottom:0.35rem}
+.legal-document p{margin:0.5rem 0}
+.legal-document .legal-list{margin:0.5rem 0 0.5rem 1.2rem;padding-left:0}
+.legal-document a{color:inherit}
+.legal-document a:hover,.legal-document a:focus{color:inherit}
 
 /* Features grid */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1.5rem;padding:0 2rem}

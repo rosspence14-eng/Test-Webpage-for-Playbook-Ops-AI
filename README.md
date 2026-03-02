@@ -37,7 +37,36 @@ link to linkden blog content folder:
 https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
 
 add:
-terms of use
+terms of service
+privacy policy
+
+info i need:
+blog location and length
+where links go to (build sop , contact , about , comunity , book a demo)
+
+
+link to blogs:
+https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
+
+link to linkden blog content folder:
+https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
+
+add:
+terms of service
+privacy policy
+
+info i need:
+blog location and length
+where links go to (build sop , contact , about , comunity , book a demo)
+
+link to blogs:
+https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
+
+link to linkden blog content folder:
+https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
+
+add:
+terms of service
 privacy policy
 
 info i need:
