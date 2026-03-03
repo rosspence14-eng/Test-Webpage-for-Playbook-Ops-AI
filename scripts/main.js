@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const offsetVw = p * 100;
     const thirdSection = document.getElementById('problems-we-solve');
     const secondBgProgress = Math.max(0, Math.min(1, p));
-  const secondBgSolid = Math.max(0, Math.min(1, (secondBgProgress - 0.2) / 0.8));
+    const secondBgSolid = Math.max(0, Math.min(1, (secondBgProgress - 0.2) / 0.8));
+    const thirdBgProgress = Math.max(0, Math.min(1, p - 1));
+    document.documentElement.style.setProperty('--second-bg-progress', secondBgProgress.toFixed(4));
     document.documentElement.style.setProperty('--second-bg-solid', secondBgSolid.toFixed(4));
+    document.documentElement.style.setProperty('--third-bg-progress', thirdBgProgress.toFixed(4));
 
     sections.forEach((section, index) => {
       if (index === 0) {

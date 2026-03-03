@@ -15,8 +15,10 @@
 	--brand-mid: #24A669;
 	--brand-green: #1BA64B;
 	--brand-secondary-bg: #3d3d4a;
+	--brand-third-bg: #1a1a2e;
 	--second-bg-progress: 0;
 	--second-bg-solid: 0;
+	--third-bg-progress: 0;
 	--bg: #f7f7f7;
 	--surface: #ffffff;
 	--text: #222222;
@@ -117,15 +119,60 @@ a{color:inherit;text-decoration:underline}
 .content-section.leaving-to-third .feature-card:nth-child(3){transform:translate(-68vw, 52vh)}
 .content-section.leaving-to-third .feature-card:nth-child(4){transform:translate(68vw, 52vh)}
 #problems-we-solve.scroll-section{z-index:0}
+#problems-we-solve.scroll-section::before{content:"";position:absolute;inset:0;background:linear-gradient(to top, var(--brand-third-bg) 0%, var(--brand-third-bg) 70%, rgba(26,26,46,0.85) 82%, rgba(26,26,46,0.55) 90%, rgba(26,26,46,0.2) 96%, rgba(26,26,46,0) 100%);opacity:1;z-index:-1}
 
 /* Utility */
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 
+/* Pricing page */
+.pricing-section{background:var(--brand-dark);color:#ffffff;padding:3rem 1rem 4rem;min-height:calc(100vh - 160px)}
+.pricing-section .container{max-width:1200px}
+.pricing-section h2{color:#ffffff;text-align:center;margin-bottom:0.5rem}
+.pricing-intro{color:#ffffff;opacity:0.75;text-align:center;margin:0 0 1.5rem}
+
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin:0 auto 2rem}
+.toggle-label{font-weight:600;opacity:0.65}
+.toggle-label.active{opacity:1}
+.save-badge{display:inline-block;background:var(--brand-primary);color:var(--surface);padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;margin-left:0.25rem}
+.toggle-switch{position:relative;display:inline-block;width:52px;height:28px}
+.toggle-switch input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:rgba(255,255,255,0.2);border-radius:999px;cursor:pointer;transition:background .2s ease}
+.toggle-slider::before{content:"";position:absolute;height:22px;width:22px;left:3px;top:3px;background:var(--surface);border-radius:50%;transition:transform .2s ease}
+.toggle-switch input:checked + .toggle-slider{background:var(--brand-primary)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(24px)}
+
+.pricing-cards{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:1.25rem;align-items:stretch}
+.pricing-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:1.6rem 1.4rem;min-height:700px;box-shadow:0 18px 38px rgba(0,0,0,0.42), 0 4px 10px rgba(0,0,0,0.28);display:flex;flex-direction:column;position:relative;transform:translateY(-4px);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;cursor:pointer}
+.pricing-card:hover,.pricing-card:focus-within{transform:translateY(-12px);box-shadow:0 28px 52px rgba(0,0,0,0.5), 0 10px 18px rgba(0,0,0,0.34)}
+.pricing-card:focus-visible{outline:2px solid var(--brand-accent-cyan);outline-offset:2px}
+.pricing-card.recommended{border-color:var(--brand-primary);box-shadow:0 24px 46px rgba(36,166,105,0.22), 0 8px 16px rgba(0,0,0,0.3);transform:translateY(-10px)}
+.pricing-card.recommended:hover,.pricing-card.recommended:focus-within{transform:translateY(-16px);box-shadow:0 32px 58px rgba(36,166,105,0.28), 0 12px 20px rgba(0,0,0,0.35)}
+.recommended-badge{position:absolute;top:-12px;right:14px;background:var(--brand-primary);color:var(--surface);padding:0.2rem 0.6rem;border-radius:999px;font-size:0.72rem;font-weight:700}
+
+.plan-name{color:#ffffff;margin:0}
+.plan-subtitle{color:#ffffff;opacity:0.78;margin:0.15rem 0 0.4rem;font-weight:600}
+.plan-tagline{color:#ffffff;opacity:0.84;margin:0 0 0.9rem}
+
+.card-pricing{margin-bottom:0.9rem}
+.price-display{display:flex;align-items:flex-end;gap:0.2rem;line-height:1}
+.price{display:inline-flex;align-items:flex-end;color:#ffffff}
+.currency{font-size:1.1rem;margin-bottom:0.3rem}
+.amount{font-size:2rem;font-weight:700}
+.price-period{color:#ffffff;opacity:0.7;font-size:0.9rem;margin-left:0.25rem}
+.billing-note{margin:0.4rem 0 0;color:#ffffff;opacity:0.7;font-size:0.85rem}
+
+.features-list{margin:0 0 1.1rem 1rem;padding:0;color:#ffffff;display:grid;gap:0.32rem}
+.pricing-cta{margin-top:auto;display:inline-flex;justify-content:center;align-items:center;text-decoration:none;background:var(--brand-primary);color:var(--surface);padding:0.6rem 1rem;border-radius:8px;font-weight:600;transition:background .12s ease,transform .12s ease}
+.pricing-cta:hover,.pricing-cta:focus{background:var(--brand-mid);transform:translateY(-1px)}
+
+.pricing-footer{margin-top:1.8rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.16);text-align:center}
+.pricing-progression{margin:0;color:#ffffff;opacity:0.86}
+
 /* Responsive */
 /* Smooth gradient background on wheel input with horizontal section movement */
 main.scroll-container{position:fixed;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1;touch-action:none}
-main.scroll-container::before{content:"";position:absolute;inset:0;background:linear-gradient(to left, rgba(96,99,115,1) 0%, rgba(96,99,115,1) 72%, rgba(96,99,115,0.78) 84%, rgba(96,99,115,0.45) 92%, rgba(96,99,115,0.15) 97%, rgba(96,99,115,0) 100%);opacity:var(--second-bg-progress);transform:translateX(calc((1 - var(--second-bg-progress)) * 100%));z-index:0;pointer-events:none}
-main.scroll-container::after{content:"";position:absolute;inset:0;background:var(--brand-secondary-bg);opacity:var(--second-bg-solid);z-index:0;pointer-events:none}
+main.scroll-container::before{content:"";position:absolute;inset:0;background:linear-gradient(to left, rgba(96,99,115,1) 0%, rgba(96,99,115,1) 72%, rgba(96,99,115,0.78) 84%, rgba(96,99,115,0.45) 92%, rgba(96,99,115,0.15) 97%, rgba(96,99,115,0) 100%);opacity:var(--second-bg-progress);transform:translateX(calc((1 - var(--second-bg-progress)) * 100%));z-index:-3;pointer-events:none}
+main.scroll-container::after{content:"";position:absolute;inset:0;background:var(--brand-secondary-bg);opacity:var(--second-bg-solid);z-index:-2;pointer-events:none}
 .scroll-container{position:relative;width:300%;height:100%;display:flex;flex-direction:row;overflow:hidden}
 .scroll-section{position:relative;width:100vw;height:100vh;display:flex;align-items:center;flex-shrink:0;transition:none;z-index:1}
 .content-section.scroll-section{z-index:2}
@@ -188,6 +235,10 @@ main.scroll-container::after{content:"";position:absolute;inset:0;background:var
 	.feature-card h3{font-size:1.15rem;margin-bottom:0.45rem}
 	.feature-card p{font-size:0.92rem;line-height:1.45}
 	.section{padding:1.25rem 0.75rem}
+	.pricing-cards{grid-template-columns:1fr}
+	.pricing-card{min-height:auto;transform:none}
+	.pricing-card.recommended{transform:none}
+	.billing-toggle{flex-wrap:wrap}
 
 	/* Keep animated section layout on mobile */
 	main.scroll-container{position:fixed;height:100vh;overflow:hidden}

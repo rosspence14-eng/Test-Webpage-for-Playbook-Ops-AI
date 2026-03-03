@@ -13,15 +13,170 @@
     <div id="header-container"></div>
 
     <main>
-        <section class="container section">
-            <h2>Pricing</h2>
-            <h3>Pricing — Transparent Plans</h3>
-            <p>Starter, Growth, and Enterprise plans. Prices shown here are placeholders for layout purposes.</p>
+        <section class="pricing-section">
+            <div class="container">
+                <h2>Choose Your Plan</h2>
+                <p class="pricing-intro">Scale your operations at your pace</p>
+                
+                <!-- Billing Toggle -->
+                <div class="billing-toggle">
+                    <span class="toggle-label" data-period="monthly">Monthly</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="billingToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label active" data-period="annual">Annual <span class="save-badge">Save up to 37%</span></span>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="pricing-cards">
+                    <!-- Foundation Plan -->
+                    <div class="pricing-card" data-href="https://app.playbookops.ai/login" role="link" tabindex="0" aria-label="Get started with Foundation plan">
+                        <div class="card-header">
+                            <h3 class="plan-name">Foundation</h3>
+                            <p class="plan-subtitle">Starter</p>
+                            <p class="plan-tagline">Build your first SOP in 15 minutes</p>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="price-display">
+                                <span class="price annual-price"><span class="currency">$</span><span class="amount">12</span></span>
+                                <span class="price monthly-price" style="display:none"><span class="currency">$</span><span class="amount">15</span></span>
+                                <span class="price-period">/user/month</span>
+                            </div>
+                            <p class="billing-note annual-note">Billed annually</p>
+                            <p class="billing-note monthly-note" style="display:none">Billed monthly</p>
+                        </div>
+                        <ul class="features-list">
+                            <li>Up to 5 users</li>
+                            <li>10 SOPs included</li>
+                            <li>AI-powered SOP generation</li>
+                            <li>Basic templates library</li>
+                            <li>Role-based access control</li>
+                            <li>Email support</li>
+                            <li>Mobile access</li>
+                        </ul>
+                        <a href="https://app.playbookops.ai/login" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+                    </div>
+
+                    <!-- Scale Plan (Recommended) -->
+                    <div class="pricing-card recommended" data-href="https://app.playbookops.ai/login" role="link" tabindex="0" aria-label="Get started with Scale plan">
+                        <div class="recommended-badge">Recommended</div>
+                        <div class="card-header">
+                            <h3 class="plan-name">Scale</h3>
+                            <p class="plan-subtitle">Professional</p>
+                            <p class="plan-tagline">Document, train, and execute systematically</p>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="price-display">
+                                <span class="price annual-price"><span class="currency">$</span><span class="amount">25</span></span>
+                                <span class="price monthly-price" style="display:none"><span class="currency">$</span><span class="amount">35</span></span>
+                                <span class="price-period">/user/month</span>
+                            </div>
+                            <p class="billing-note annual-note">Billed annually</p>
+                            <p class="billing-note monthly-note" style="display:none">Billed monthly</p>
+                        </div>
+                        <ul class="features-list">
+                            <li>Up to 25 users</li>
+                            <li>Unlimited SOPs</li>
+                            <li>Advanced AI generation</li>
+                            <li>Custom templates</li>
+                            <li>Workflow automation</li>
+                            <li>Team training modules</li>
+                            <li>Priority support</li>
+                            <li>API access</li>
+                            <li>Advanced analytics</li>
+                        </ul>
+                        <a href="https://app.playbookops.ai/login" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+                    </div>
+
+                    <!-- Command Plan -->
+                    <div class="pricing-card" data-href="https://app.playbookops.ai/login" role="link" tabindex="0" aria-label="Get started with Command plan">
+                        <div class="card-header">
+                            <h3 class="plan-name">Command</h3>
+                            <p class="plan-subtitle">Enterprise</p>
+                            <p class="plan-tagline">Turn processes into competitive advantages</p>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="price-display">
+                                <span class="price annual-price"><span class="currency">$</span><span class="amount">49</span></span>
+                                <span class="price monthly-price" style="display:none"><span class="currency">$</span><span class="amount">59</span></span>
+                                <span class="price-period">/user/month</span>
+                            </div>
+                            <p class="billing-note annual-note">Billed annually</p>
+                            <p class="billing-note monthly-note" style="display:none">Billed monthly</p>
+                        </div>
+                        <ul class="features-list">
+                            <li>Unlimited users</li>
+                            <li>Unlimited SOPs</li>
+                            <li>AI-powered process intelligence</li>
+                            <li>Custom integrations</li>
+                            <li>Advanced workflow engine</li>
+                            <li>White-label options</li>
+                            <li>Dedicated success manager</li>
+                            <li>24/7 premium support</li>
+                            <li>Custom onboarding</li>
+                            <li>Advanced security & compliance</li>
+                        </ul>
+                        <a href="https://app.playbookops.ai/login" target="_blank" rel="noopener noreferrer" class="pricing-cta">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Pricing Footer -->
+                <div class="pricing-footer">
+                    <p class="pricing-progression">
+                        <strong>Foundation → Scale → Command</strong><br>
+                        Documentation → Execution → Process Intelligence
+                    </p>
+                </div>
+            </div>
         </section>
     </main>
 
     <div id="footer-container"></div>
 
     <script src="scripts/main.js"></script>
+    <script>
+        // Billing toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('billingToggle');
+            const annualPrices = document.querySelectorAll('.annual-price, .annual-note');
+            const monthlyPrices = document.querySelectorAll('.monthly-price, .monthly-note');
+            const labels = document.querySelectorAll('.toggle-label');
+            const cards = document.querySelectorAll('.pricing-card[data-href]');
+
+            cards.forEach((card) => {
+                const href = card.getAttribute('data-href');
+                if (!href) return;
+
+                card.addEventListener('click', (event) => {
+                    if (event.target.closest('.pricing-cta')) return;
+                    window.open(href, '_blank', 'noopener,noreferrer');
+                });
+
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        window.open(href, '_blank', 'noopener,noreferrer');
+                    }
+                });
+            });
+
+            toggle.addEventListener('change', function() {
+                if (toggle.checked) {
+                    // Show annual pricing
+                    annualPrices.forEach(el => el.style.display = '');
+                    monthlyPrices.forEach(el => el.style.display = 'none');
+                    labels[0].classList.remove('active');
+                    labels[1].classList.add('active');
+                } else {
+                    // Show monthly pricing
+                    annualPrices.forEach(el => el.style.display = 'none');
+                    monthlyPrices.forEach(el => el.style.display = '');
+                    labels[0].classList.add('active');
+                    labels[1].classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
