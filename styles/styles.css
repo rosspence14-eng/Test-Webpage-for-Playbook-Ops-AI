@@ -41,13 +41,13 @@ a{color:inherit;text-decoration:underline}
 /* Header */
 .site-header{background:#0D080A;border-bottom:1px solid rgba(0,0,0,0.06);position:relative;z-index:100}
 .site-header .container{display:flex;align-items:center;justify-content:flex-start;padding:1.75rem 1rem;padding-left:6rem}
-.brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;position:absolute;left:1rem;top:50%;transform:translateY(-50%)}
+.brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;position:absolute;left:1rem;top:50%;transform:translateY(-50%) translateY(2px)}
 .site-logo-wrap{display:inline-block;vertical-align:middle;height:40px}
 .site-logo{height:100%;width:auto;display:block}
 .brand-text{font-size:1.15rem;font-weight:600;color:#ffffff;font-family:Azonix,Anta,sans-serif}
 
 /* Nav */
-.main-nav{position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:0.5rem;z-index:20}
+.main-nav{position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:1.5rem;z-index:20}
 .nav-list{list-style:none;display:flex;gap:1rem;align-items:center;margin-left:0}
 .nav-list a{text-decoration:none;color:inherit;padding:0.25rem 0.5rem;border-radius:4px}
 #nav-toggle{display:none;color:#ffffff}
