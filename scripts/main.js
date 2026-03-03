@@ -3,10 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const sections = document.querySelectorAll('.scroll-section');
   if (sections.length === 0) return; // Exit if not on index page
   
-  // Detect if mobile (disable horizontal scroll animation on mobile)
-  const isMobile = window.innerWidth <= 1000;
-  if (isMobile) return; // Exit on mobile - use natural vertical scrolling
-  
   // Scroll-based horizontal movement that snaps section-by-section
   const maxIndex = sections.length - 1;
   let progress = 0; // 0 (first section) -> maxIndex (last section)
@@ -22,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const render = (p) => {
     const offsetVw = p * 100;
     const thirdSection = document.getElementById('problems-we-solve');
+    const secondBgProgress = Math.max(0, Math.min(1, p));
+  const secondBgSolid = Math.max(0, Math.min(1, (secondBgProgress - 0.2) / 0.8));
+    document.documentElement.style.setProperty('--second-bg-solid', secondBgSolid.toFixed(4));
 
     sections.forEach((section, index) => {
       if (index === 0) {
@@ -101,5 +100,39 @@ document.addEventListener('DOMContentLoaded', function () {
     startAnimationTo(target);
   };
 
+  // Touch support for mobile/tablet: swipe up/down to move sections
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  const handleTouchStart = (e) => {
+    if (!e.touches || e.touches.length === 0) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!e.changedTouches || e.changedTouches.length === 0) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaY) < 40 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
+
+    const dir = deltaY < 0 ? 1 : -1;
+    const currentIndex = Math.round(progress);
+    const target = currentIndex + dir;
+    if (animating && animTo === Math.max(0, Math.min(maxIndex, target))) return;
+    startAnimationTo(target);
+  };
+
   window.addEventListener('wheel', handleWheel, { passive: false });
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchmove', handleTouchMove, { passive: false });
+  window.addEventListener('touchend', handleTouchEnd, { passive: true });
 });
