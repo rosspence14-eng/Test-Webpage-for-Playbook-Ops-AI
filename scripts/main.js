@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let animating = false;
   let animStart = 0;
   const animDuration = 1050;
+  const sectionChangeCooldownMs = 280;
+  let inputLockedUntil = 0;
   let animFrom = 0;
   let animTo = 0;
 
@@ -73,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const t = Math.min(1, (now - animStart) / animDuration);
       const eased = easeOutCubic(t);
       progress = animFrom + (animTo - animFrom) * eased;
-      if (t >= 1) animating = false;
+      if (t >= 1) {
+        animating = false;
+        inputLockedUntil = now + sectionChangeCooldownMs;
+      }
     }
 
     // ease displayProgress toward progress for subtle smoothing
@@ -95,11 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const handleWheel = (e) => {
     e.preventDefault();
+    if (animating || performance.now() < inputLockedUntil) return;
     const dir = e.deltaY > 0 ? 1 : -1;
     const currentIndex = Math.round(progress);
     const target = currentIndex + dir;
-    // if already animating toward same target, ignore
-    if (animating && animTo === Math.max(0, Math.min(maxIndex, target))) return;
     startAnimationTo(target);
   };
 
@@ -119,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const handleTouchEnd = (e) => {
     if (!e.changedTouches || e.changedTouches.length === 0) return;
+    if (animating || performance.now() < inputLockedUntil) return;
 
     const touchEndX = e.changedTouches[0].clientX;
     const touchEndY = e.changedTouches[0].clientY;
@@ -130,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const dir = deltaY < 0 ? 1 : -1;
     const currentIndex = Math.round(progress);
     const target = currentIndex + dir;
-    if (animating && animTo === Math.max(0, Math.min(maxIndex, target))) return;
     startAnimationTo(target);
   };
 
