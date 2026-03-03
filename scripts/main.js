@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const sections = document.querySelectorAll('.scroll-section');
   if (sections.length === 0) return; // Exit if not on index page
   
+  // Detect if mobile (disable horizontal scroll animation on mobile)
+  const isMobile = window.innerWidth <= 1000;
+  if (isMobile) return; // Exit on mobile - use natural vertical scrolling
+  
   // Scroll-based horizontal movement that only snaps at ends (start/end) with fixed animation speed
   const totalSections = sections.length;
   let progress = 0; // 0.0 (start) -> 1.0 (end)

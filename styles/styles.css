@@ -159,6 +159,12 @@ main.scroll-container{position:fixed;top:0;left:0;width:100%;height:100vh;overfl
 	.hero .container{padding-left:1.5rem;padding-right:1.5rem}
 	.hero h2{font-size:2.5rem}
 
+	/* Enable vertical scrolling on mobile - reflow sections vertically */
+	main.scroll-container{position:static;height:auto;overflow:auto}
+	.scroll-container{width:100%;height:auto;flex-direction:column;overflow:visible}
+	.scroll-section{width:100%;height:auto;min-height:100vh}
+	.scroll-cue{display:none}
+
 	@keyframes navSlide{
 		from{opacity:0;transform:translateY(-8px)}
 		to{opacity:1;transform:translateY(0)}
