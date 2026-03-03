@@ -1,5 +1,7 @@
 # Test Webpage
 
+https://rosspence14-eng.github.io/Test-Webpage-for-Playbook-Ops-AI/
+
 Starter scaffold for a static website.
 
 Quick start
@@ -30,19 +32,13 @@ Branding
  - Add your webp logo at `assets/images/logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `logo.webp` here and I will add it to the project.
  - Add your webp logo at `assets/images/PlayBookOps_Logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `PlayBookOps_Logo.webp` here and I will add it to the project.
 
-link to blogs:
-https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
 
-link to linkden blog content folder:
-https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
-
-add:
-terms of service
-privacy policy
-
-info i need:
-blog location and length
-where links go to (build sop , contact , about , comunity , book a demo)
+#0D080A
+#50F2F2
+#39BFA7
+#24A669
+#1BA64B
+#606373 --Background
 
 
 link to blogs:
@@ -52,23 +48,20 @@ link to linkden blog content folder:
 https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
 
 add:
-terms of service
+terms of use
 privacy policy
 
 info i need:
 blog location and length
 where links go to (build sop , contact , about , comunity , book a demo)
 
-link to blogs:
-https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
+What is it being hosted on
 
-link to linkden blog content folder:
-https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
+data base
 
-add:
-terms of service
-privacy policy
+vesel
+fly
 
-info i need:
-blog location and length
-where links go to (build sop , contact , about , comunity , book a demo)
+wordpress?
+supa base
+
