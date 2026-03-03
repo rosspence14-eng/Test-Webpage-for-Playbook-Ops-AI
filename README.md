@@ -1,67 +1,50 @@
-# Test Webpage
+# PlayBookOps Website
 
-https://rosspence14-eng.github.io/Test-Webpage-for-Playbook-Ops-AI/
+**Live Site:** https://rosspence14-eng.github.io/Test-Webpage-for-Playbook-Ops-AI/
 
-Starter scaffold for a static website.
+Static website for PlayBookOps - AI-powered SOP creation and business operations platform.
 
-Quick start
+## Quick Start
 
-1. Open `index.html` in your browser, or run a simple HTTP server from the project root:
+Run a local development server:
 
 ```powershell
 python -m http.server 8000
-
-# or (PowerShell)
+# or
 npx http-server -p 8000
 ```
 
-2. Edit files in `styles/` and `scripts/` to customize.
+Then open http://localhost:8000 in your browser.
 
-Files
+## Project Structure
 
-- `index.html` — main page
-- `styles/styles.css` — base styles
-- `scripts/main.js` — simple JS helpers
-- `assets/images/` — images and static assets (place project images here)
+- **Pages:** `index.html`, `about.html`, `how-it-works.html`, `who-its-for.html`, `pricing.html`, `proof.html`, `faq.html`, `build-sop.html`, `privacy-policy.html`, `terms-of-service.html`
+- **Components:** `components/header.html`, `components/footer.html`
+- **Styles:** `styles/styles.css`, `styles/fade.css`
+- **Scripts:** `scripts/main.js`, `scripts/include.js`, `scripts/legal-loader.js`, `scripts/fade.js`
+- **Assets:** `assets/images/`, `assets/Legal/`
 
-Branding
+## Brand Colors
 
-- Place the brand color image at `assets/images/Brand Colors.jpg` (already present). To extract exact hex values, open it in an image editor (or use a color picker) and update the CSS variables at the top of `styles/styles.css` (`--brand-primary`, `--brand-secondary`, `--brand-accent`).
-- Add your webp logo at `assets/images/logo.webp`. The template will use it and fall back to `assets/images/logo.svg` if the webp is not present.
- - Place the brand color image at `assets/images/Brand Colors.jpg` (already present). To extract exact hex values, open it in an image editor (or use a color picker) and update the CSS variables at the top of `styles/styles.css`.
- - Add your webp logo at `assets/images/logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `logo.webp` here and I will add it to the project.
- - Add your webp logo at `assets/images/PlayBookOps_Logo.webp`. The template will use the WebP first and fall back to `assets/images/logo.svg` if WebP is not present. If you want, upload `PlayBookOps_Logo.webp` here and I will add it to the project.
+```
+#0D080A - Dark (primary background)
+#50F2F2 - Cyan
+#39BFA7 - Teal
+#24A669 - Green
+#1BA64B - Bright Green
+#606373 - Gray (secondary background)
+```
 
+## External Links
 
-#0D080A
-#50F2F2
-#39BFA7
-#24A669
-#1BA64B
-#606373 --Background
+**Blog:** https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
 
+**Content Folder:** https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
 
-link to blogs:
-https://www.linkedin.com/newsletters/the-operations-playbook-7409040193036419072/
+## Future Considerations
 
-link to linkden blog content folder:
-https://drive.google.com/drive/folders/1GFTFS4tXRIa453IAOfar5TC-Cj7EBYkK
-
-add:
-terms of use
-privacy policy
-
-info i need:
-blog location and length
-where links go to (build sop , contact , about , comunity , book a demo)
-
-What is it being hosted on
-
-data base
-
-vesel
-fly
-
-wordpress?
-supa base
+- Blog integration location and format
+- Hosting platform (Vercel, Fly.io, or other)
+- Database solution (Supabase or alternative)
+- Community features
 

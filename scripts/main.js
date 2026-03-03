@@ -40,6 +40,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
+  // Update scroll cue visibility based on progress
+  const updateScrollCue = () => {
+    const cue = document.getElementById('scroll-cue');
+    if (cue) {
+      if (progress > 0.1) {
+        cue.style.opacity = '0';
+        cue.style.pointerEvents = 'none';
+      } else {
+        cue.style.opacity = '1';
+        cue.style.pointerEvents = 'auto';
+      }
+    }
+  };
+
   const animate = (now) => {
     if (animating) {
       const t = Math.min(1, (now - animStart) / animDuration);
@@ -51,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ease displayProgress toward progress for subtle smoothing
     displayProgress += (progress - displayProgress) * 0.12;
     render(displayProgress);
+    updateScrollCue();
 
     if (animating || Math.abs(displayProgress - progress) > 0.0005) {
       requestAnimationFrame(animate);
@@ -74,5 +89,28 @@ document.addEventListener('DOMContentLoaded', function () {
     startAnimationTo(target);
   };
 
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+  const handleTouchStart = (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  };
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = Math.abs(touchEndY - touchStartY);
+    // Only trigger if horizontal swipe is more significant than vertical
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
+      const dir = Math.sign(deltaX);
+      const target = dir > 0 ? 0 : 1; // swipe right = go back, swipe left = go forward
+      if (animating && (animTo === target)) return;
+      startAnimationTo(target);
+    }
+  };
+
   window.addEventListener('wheel', handleWheel, { passive: false });
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchend', handleTouchEnd, { passive: true });
 });
