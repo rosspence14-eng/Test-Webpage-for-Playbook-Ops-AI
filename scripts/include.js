@@ -3,17 +3,28 @@ function loadComponent(elementId, filePath) {
     return fetch(filePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.innerHTML = ''; // silently fail, don't log
+                }
+                return null;
             }
             return response.text();
         })
         .then(data => {
+            if (data === null) return; // handle fetch failure silently
             const element = document.getElementById(elementId);
             if (element) {
                 element.innerHTML = data;
             }
         })
-        .catch(error => console.error('Error loading component:', error));
+        .catch(error => {
+            // silently catch errors rather than logging to console
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = '';
+            }
+        });
 }
 
 // Function to initialize scripts after components are loaded
@@ -48,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         loadComponent('header-container', 'components/header.html'),
         loadComponent('footer-container', 'components/footer.html')
     ]).then(() => {
+        initializeScripts();
+    }).catch(() => {
+        // silently handle any errors from promise chain
         initializeScripts();
     });
 });

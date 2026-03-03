@@ -82,7 +82,7 @@ async function loadLegalDocument() {
         const rawText = await response.text();
         mount.innerHTML = renderLegalMarkdown(rawText);
     } catch (error) {
-        console.error(error);
+        // silently handle errors rather than logging to console
         mount.innerHTML = '<p>Unable to load this document right now. Please try again later.</p>';
     }
 }
