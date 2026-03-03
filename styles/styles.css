@@ -41,7 +41,7 @@ a{color:inherit;text-decoration:underline}
 /* Header */
 .site-header{background:#0D080A;border-bottom:1px solid rgba(0,0,0,0.06);position:relative;z-index:100}
 .site-header .container{display:flex;align-items:center;justify-content:flex-start;padding:1.75rem 1rem;padding-left:6rem}
-.brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;position:absolute;left:1rem;top:50%;transform:translateY(-50%) translateY(2px)}
+.brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;position:absolute;left:1rem;top:50%;transform:translateY(-50%) translateY(4px)}
 .site-logo-wrap{display:inline-block;vertical-align:middle;height:40px}
 .site-logo{height:100%;width:auto;display:block}
 .brand-text{font-size:1.15rem;font-weight:600;color:#ffffff;font-family:Azonix,Anta,sans-serif}
@@ -197,7 +197,7 @@ main.scroll-container::after{content:"";position:absolute;inset:0;background:var
 	.nav-cta-full{display:none}
 	.nav-cta-short{display:inline}
 	/* show hamburger toggle */
-	#nav-toggle{display:inline-block;margin-left:0.5rem;background:none;border:none;color:#ffffff;padding:6px}
+	#nav-toggle{display:inline-block;margin-left:0.25rem;background:none;border:none;color:#ffffff;padding:6px}
 	#nav-toggle:focus{outline:2px solid rgba(255,255,255,0.12);border-radius:4px}
 
 	/* Hamburger icon (thin lines) */
