@@ -189,6 +189,7 @@ main.scroll-container::after{content:"";position:absolute;inset:0;background:var
 
 
 @media (max-width:1000px){
+	.main-nav{gap:0.4rem}
 	/* Collapse most nav items into a hamburger dropdown; keep CTA (last item) visible */
 	.nav-list{display:flex;gap:0.5rem;align-items:center;margin:0}
 	/* hide all nav items (they appear in dropdown when opened); CTA is separate */
@@ -197,7 +198,7 @@ main.scroll-container::after{content:"";position:absolute;inset:0;background:var
 	.nav-cta-full{display:none}
 	.nav-cta-short{display:inline}
 	/* show hamburger toggle */
-	#nav-toggle{display:inline-block;margin-left:0.25rem;background:none;border:none;color:#ffffff;padding:6px}
+	#nav-toggle{display:inline-block;margin-left:0.1rem;background:none;border:none;color:#ffffff;padding:6px}
 	#nav-toggle:focus{outline:2px solid rgba(255,255,255,0.12);border-radius:4px}
 
 	/* Hamburger icon (thin lines) */
