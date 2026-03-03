@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Jersey+10+Charted&display=swap');
 
+/* Custom fonts */
+@font-face{
+	font-family:Azonix;
+	src:url('../assets/fonts/Azonix.otf') format('opentype');
+	font-display:swap;
+}
+
 /* Brand variables (palette supplied by user) */
 :root{
 	--brand-dark: #0D080A;
@@ -7,7 +14,7 @@
 	--brand-primary: #39BFA7;
 	--brand-mid: #24A669;
 	--brand-green: #1BA64B;
-	--brand-secondary-bg: #606373;
+	--brand-secondary-bg: #3d3d4a;
 	--second-bg-progress: 0;
 	--second-bg-solid: 0;
 	--bg: #f7f7f7;
@@ -19,14 +26,14 @@
 /* Reset */
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0}
-h1,h2,h3,h4,h5,h6{font-family:Anta,sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:Azonix,Anta,sans-serif}
 body{line-height:1.5;font-family:Segoe UI, Roboto, Arial, sans-serif;color:#ffffff;background:var(--brand-dark);display:flex;flex-direction:column;min-height:100vh}
 main:not(.scroll-container){flex:1}
 
 .container{max-width:1000px;margin:0 auto;padding:1rem}
 
 /* Left-align container inside hero so content sits at left edge */
-.hero .container{margin:0;padding-left:2.5rem}
+.hero .container{margin:0;padding-left:2.5rem;max-width:100%}
 
 /* Header */
 .site-header{background:#0D080A;border-bottom:1px solid rgba(0,0,0,0.06);position:relative;z-index:100}
@@ -34,7 +41,7 @@ main:not(.scroll-container){flex:1}
 .brand{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:#ffffff;position:absolute;left:1rem;top:50%;transform:translateY(-50%)}
 .site-logo-wrap{display:inline-block;vertical-align:middle;height:40px}
 .site-logo{height:100%;width:auto;display:block}
-.brand-text{font-size:1.15rem;font-weight:600;color:#ffffff}
+.brand-text{font-size:1.15rem;font-weight:600;color:#ffffff;font-family:Azonix,Anta,sans-serif}
 
 /* Nav */
 .main-nav{position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:0.5rem;z-index:20}
@@ -48,7 +55,7 @@ main:not(.scroll-container){flex:1}
 
 /* Hero */
 .hero{padding:12rem 0 2.5rem;background:var(--brand-dark);display:flex;align-items:center;justify-content:flex-start;min-height:100vh;text-align:left}
-.hero h2{font-size:3.5rem;margin-bottom:1rem;color:#ffffff}
+.hero h2{font-size:3.5rem;margin-bottom:1rem;color:#ffffff;max-width:95vw}
 .hero p{font-size:1.25rem;margin-bottom:1rem;color:#ffffff;opacity:0.9}
 
 /* On index scroll sections, keep backgrounds transparent so scroll-layer effects are visible */
