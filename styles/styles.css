@@ -56,7 +56,7 @@ main:not(.scroll-container){flex:1}
 .section{padding:2rem 1rem;background:transparent;margin:1rem auto;border-radius:8px;color:#ffffff;text-align:center;max-width:1000px;width:100%}
 
 /* Content section */
-.content-section{background:var(--brand-dark);color:#ffffff;padding:2rem}
+.content-section{background:var(--brand-dark);color:#ffffff;padding:2rem;position:relative;z-index:2}
 .content-section h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}
 
 /* Site footer */
@@ -77,24 +77,31 @@ main:not(.scroll-container){flex:1}
 .legal-document a:hover,.legal-document a:focus{color:inherit}
 
 /* Features grid */
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1.5rem;padding:0 2rem}
+.features-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:2.5rem;padding:0 2rem;max-width:900px;margin:0 auto}
 
-/* Feature cards with entrance animation */
-.feature-card{background:rgba(255,255,255,0.08);padding:1.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(8px);opacity:0;transform:translateX(100px);animation:none;transition:all .3s ease}
-.feature-card h3{font-size:1.25rem;margin-bottom:0.5rem;color:var(--brand-accent-cyan)}
-.feature-card p{font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8)}
+/* Feature cards with transition-based motion states */
+.feature-card{background:rgba(255,255,255,0.08);padding:2.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(8px);opacity:0;transform:translateX(100px);transition:transform 1.05s ease, opacity 0.95s ease}
+.feature-card h3{font-size:1.5rem;margin-bottom:1rem;color:var(--brand-accent-cyan)}
+.feature-card p{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.8)}
 
-/* Entry animation - slides in from right as section enters */
-.content-section.in-view .feature-card{animation:slideInFromRight .6s ease-out forwards}
-.content-section.in-view .feature-card:nth-child(1){animation-delay:0.05s}
-.content-section.in-view .feature-card:nth-child(2){animation-delay:0.12s}
-.content-section.in-view .feature-card:nth-child(3){animation-delay:0.19s}
-.content-section.in-view .feature-card:nth-child(4){animation-delay:0.26s}
+/* Entry state for section 2 */
+.content-section.in-view .features-title{transform:translateX(0);opacity:1}
+.content-section.in-view .feature-card{transform:translateX(0);opacity:1}
+.content-section.in-view .feature-card:nth-child(1){transition-delay:0.05s}
+.content-section.in-view .feature-card:nth-child(2){transition-delay:0.12s}
+.content-section.in-view .feature-card:nth-child(3){transition-delay:0.19s}
+.content-section.in-view .feature-card:nth-child(4){transition-delay:0.26s}
 
-@keyframes slideInFromRight{
-	from{opacity:0;transform:translateX(100px)}
-	to{opacity:1;transform:translateX(0)}
-}
+.features-title{transform:translateY(-120px);opacity:0;transition:transform 1.05s ease, opacity 0.95s ease}
+
+/* Exit animation when moving from section 2 -> section 3 */
+.content-section.leaving-to-third .features-title{transform:translateY(-120vh);opacity:0.1}
+.content-section.leaving-to-third .feature-card{opacity:0.1}
+.content-section.leaving-to-third .feature-card:nth-child(1){transform:translate(-68vw, -52vh)}
+.content-section.leaving-to-third .feature-card:nth-child(2){transform:translate(68vw, -52vh)}
+.content-section.leaving-to-third .feature-card:nth-child(3){transform:translate(-68vw, 52vh)}
+.content-section.leaving-to-third .feature-card:nth-child(4){transform:translate(68vw, 52vh)}
+#problems-we-solve.scroll-section{z-index:0}
 
 /* Utility */
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
@@ -102,13 +109,12 @@ main:not(.scroll-container){flex:1}
 /* Responsive */
 /* Smooth gradient background on wheel input with horizontal section movement */
 main.scroll-container{position:fixed;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1}
-.scroll-container{position:relative;width:200%;height:100%;display:flex;flex-direction:row;overflow:hidden}
+.scroll-container{position:relative;width:300%;height:100%;display:flex;flex-direction:row;overflow:hidden}
 .scroll-section{position:relative;width:100vw;height:100vh;display:flex;align-items:center;flex-shrink:0;transition:none;z-index:0}
+.content-section.scroll-section{z-index:2}
 
-/* Scroll cue indicator */
-.scroll-cue{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;font-size:0.875rem;color:#50F2F2;opacity:1;transition:opacity 0.3s ease;z-index:50;pointer-events:none}
-.scroll-cue-text{font-weight:600;letter-spacing:0.05em}
-.scroll-cue-arrow{font-size:1.5rem;animation:bounce 1.5s infinite}
+/* Scroll cue indicator - hidden */
+.scroll-cue{display:none}
 
 @keyframes bounce{
 	0%,100%{transform:translateY(0)}
@@ -163,7 +169,6 @@ main.scroll-container{position:fixed;top:0;left:0;width:100%;height:100vh;overfl
 	main.scroll-container{position:static;height:auto;overflow:auto}
 	.scroll-container{width:100%;height:auto;flex-direction:column;overflow:visible}
 	.scroll-section{width:100%;height:auto;min-height:100vh}
-	.scroll-cue{display:none}
 
 	@keyframes navSlide{
 		from{opacity:0;transform:translateY(-8px)}

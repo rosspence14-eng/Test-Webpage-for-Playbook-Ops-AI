@@ -7,56 +7,64 @@ document.addEventListener('DOMContentLoaded', function () {
   const isMobile = window.innerWidth <= 1000;
   if (isMobile) return; // Exit on mobile - use natural vertical scrolling
   
-  // Scroll-based horizontal movement that only snaps at ends (start/end) with fixed animation speed
-  const totalSections = sections.length;
-  let progress = 0; // 0.0 (start) -> 1.0 (end)
+  // Scroll-based horizontal movement that snaps section-by-section
+  const maxIndex = sections.length - 1;
+  let progress = 0; // 0 (first section) -> maxIndex (last section)
   let displayProgress = 0; // eased display value
 
   // fixed animation parameters
   let animating = false;
   let animStart = 0;
-  const animDuration = 600; // ms for full travel from start->end
+  const animDuration = 1050;
   let animFrom = 0;
   let animTo = 0;
 
   const render = (p) => {
-    const pct = p * 100; // 0..100
+    const offsetVw = p * 100;
+    const thirdSection = document.getElementById('problems-we-solve');
+
     sections.forEach((section, index) => {
       if (index === 0) {
-        section.style.transform = `translateX(calc(-${pct}vw))`;
-      } else {
-        section.style.transform = `translateX(calc(${100 - pct}vw))`;
+        section.style.transform = `translateX(calc(-${offsetVw}vw))`;
+        return;
       }
+
+      if (index === 1) {
+        const secondOffset = p <= 1 ? offsetVw : 100;
+        section.style.transform = `translateX(calc(-${secondOffset}vw))`;
+        return;
+      }
+
+      const thirdProgress = Math.max(0, Math.min(1, p - 1));
+      const thirdY = (1 - thirdProgress) * 100;
+      section.style.transform = `translateX(-200vw) translateY(${thirdY}vh)`;
     });
+
+    if (thirdSection) {
+      thirdSection.style.zIndex = p >= 1.93 ? '3' : '0';
+    }
     
     // Trigger entrance animation for content section when scrolled into view
     const contentSection = document.getElementById('features');
     if (contentSection) {
-      // Trigger animation as section starts entering (p >= 0.3)
-      if (p >= 0.3) {
+      if (p >= 0.5 && p < 1.7) {
         contentSection.classList.add('in-view');
-        console.log('Added in-view class, p =', p);
       } else {
         contentSection.classList.remove('in-view');
+      }
+
+      const isReturningToSecond = animating && animTo === 1 && p > 1;
+      const leavingThreshold = isReturningToSecond ? 1.55 : 1.1;
+
+      if (p >= leavingThreshold) {
+        contentSection.classList.add('leaving-to-third');
+      } else {
+        contentSection.classList.remove('leaving-to-third');
       }
     }
   };
 
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
-  // Update scroll cue visibility based on progress
-  const updateScrollCue = () => {
-    const cue = document.getElementById('scroll-cue');
-    if (cue) {
-      if (progress > 0.1) {
-        cue.style.opacity = '0';
-        cue.style.pointerEvents = 'none';
-      } else {
-        cue.style.opacity = '1';
-        cue.style.pointerEvents = 'auto';
-      }
-    }
-  };
 
   const animate = (now) => {
     if (animating) {
@@ -69,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ease displayProgress toward progress for subtle smoothing
     displayProgress += (progress - displayProgress) * 0.12;
     render(displayProgress);
-    updateScrollCue();
 
     if (animating || Math.abs(displayProgress - progress) > 0.0005) {
       requestAnimationFrame(animate);
@@ -78,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const startAnimationTo = (target) => {
     animFrom = progress;
-    animTo = Math.max(0, Math.min(1, target));
+    animTo = Math.max(0, Math.min(maxIndex, target));
     animStart = performance.now();
     animating = true;
     requestAnimationFrame(animate);
@@ -86,35 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const handleWheel = (e) => {
     e.preventDefault();
-    const dir = Math.sign(e.deltaY || 1);
-    const target = dir > 0 ? 1 : 0;
+    const dir = e.deltaY > 0 ? 1 : -1;
+    const currentIndex = Math.round(progress);
+    const target = currentIndex + dir;
     // if already animating toward same target, ignore
-    if (animating && ((animTo === target))) return;
+    if (animating && animTo === Math.max(0, Math.min(maxIndex, target))) return;
     startAnimationTo(target);
   };
 
-  // Touch/swipe support for mobile
-  let touchStartX = 0;
-  let touchStartY = 0;
-  const handleTouchStart = (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  };
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY;
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = Math.abs(touchEndY - touchStartY);
-    // Only trigger if horizontal swipe is more significant than vertical
-    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
-      const dir = Math.sign(deltaX);
-      const target = dir > 0 ? 0 : 1; // swipe right = go back, swipe left = go forward
-      if (animating && (animTo === target)) return;
-      startAnimationTo(target);
-    }
-  };
-
   window.addEventListener('wheel', handleWheel, { passive: false });
-  window.addEventListener('touchstart', handleTouchStart, { passive: true });
-  window.addEventListener('touchend', handleTouchEnd, { passive: true });
 });

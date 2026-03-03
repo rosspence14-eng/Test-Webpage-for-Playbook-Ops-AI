@@ -48,3 +48,5 @@ Then open http://localhost:8000 in your browser.
 - Database solution (Supabase or alternative)
 - Community features
 
+
+over 2000px show logo
